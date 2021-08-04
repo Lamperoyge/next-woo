@@ -1,12 +1,30 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Quicksand', 'Poppins', 'system-ui'],
+      },
+      colors: {
+        lime: colors.lime,
+        green: colors.green,
+        gray: colors.gray,
+        coolGray: colors.coolGray,
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
+  ],
+  daisyui: {
+    base: false,
+  },
+};

@@ -1,0 +1,1 @@
+import ShopCategoryList from './list';
