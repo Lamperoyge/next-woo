@@ -1,11 +1,8 @@
 import { urlExtractor } from 'utils/extractUrl';
 import Link from 'next/link';
-export default function ProductCard({ idx, item }) {
+export default function ProductCard({ classnames, idx, item }) {
   return (
-    <div
-      key={idx}
-      className='flex flex-col w-1/2 lg:w-1/4 md:w-1/3  px-4 py-4 carousel-item'
-    >
+    <div key={idx} className={`flex flex-col ${classnames}`}>
       <Link href={urlExtractor(item.permalink)}>
         <img src={item.images[0].src} className='w-80 cursor-pointer' />
       </Link>

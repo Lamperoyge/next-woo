@@ -19,6 +19,6 @@ export const getFavouriteProducts = () => async (dispatch) => {
     const favouriteProducts = await getFeaturedProducts();
     dispatch(setFavouriteProducts(favouriteProducts));
   } catch (error) {
-    dispahtc(setFavouriteProductsError(error));
+    dispatch(setFavouriteProductsError(error));
   }
 };

@@ -7,7 +7,6 @@ function ProductHighlight({ highlights, getHighlights }) {
   useEffect(() => {
     getHighlights();
   }, []);
-  console.log(highlights);
 
   const randomNumber = Math.floor(Math.random() * highlights.length);
   if (!highlights[randomNumber]) {

@@ -4,8 +4,6 @@ import Favorites from 'components/favorites';
 import CollectionPromo from 'components/newCollectionPromo';
 import ProductHighlight from 'components/productHighlight';
 import NewProducts from 'components/newIn';
-import Newsletter from 'components/newsletter';
-import Footer from 'components/footer';
 export default function Home() {
   return (
     <>
@@ -26,7 +24,6 @@ export default function Home() {
         <CollectionPromo />
         <NewProducts />
         <Newsletter />
-        <Footer />
       </main>
     </>
   );

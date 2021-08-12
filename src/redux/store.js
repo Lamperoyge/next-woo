@@ -4,6 +4,7 @@ import menuReducer from './menu/menu.reducer';
 import favourites from './favourites/favourites.reducer';
 import highlights from './highlights/highlights.reducer';
 import shopCategory from './shop-category/shop-category.reducer';
+import categories from './categories/categories.reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   favourites,
   highlights: highlights,
   shopCategory,
+  categories,
 });
 const initialState = {};
 const middleware = [thunk];

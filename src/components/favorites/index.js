@@ -15,7 +15,13 @@ const Favorites = ({ getFavourites, favourites }) => {
       </h2>
       <div className='w-full carousel  px-10 rounded-box'>
         {favourites.map((item, idx) => {
-          return <ProductCard item={item} idx={idx} />;
+          return (
+            <ProductCard
+              classnames='w-1/2 lg:w-1/4 md:w-1/3  px-4 py-4 carousel-item'
+              item={item}
+              key={idx}
+            />
+          );
         })}
       </div>
     </div>
