@@ -10,6 +10,7 @@ import { NextIcon, PrevIcon } from './paginationNext';
 import Loader from 'components/loader';
 import { useRouter } from 'next/router';
 import EmptyState from 'components/emptyState';
+import Filters from 'components/filters';
 const listConfig = {
   numberOfCol: 2,
   DEFAULT_PER_PAGE: 8,
@@ -89,6 +90,7 @@ export default connect(
     <>
       {products.length ? (
         <>
+          <Filters />
           <ul className='card-list'>
             {products.map((product, idx) => {
               return (
