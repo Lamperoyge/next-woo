@@ -14,6 +14,9 @@ module.exports = {
         gray: colors.gray,
         coolGray: colors.coolGray,
       },
+      margin: {
+        '25x': '0 25%',
+      },
     },
   },
   variants: {

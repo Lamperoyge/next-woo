@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '../styles/card-list.styles.css';
-
+import '../styles/loader.styles.css';
 import { createWrapper } from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
 import store from 'redux/store';

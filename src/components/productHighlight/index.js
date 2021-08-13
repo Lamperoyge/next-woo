@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { getHighlights } from 'redux/highlights/highlights.actions';
 import { urlExtractor } from 'utils/extractUrl';
-function ProductHighlight({ highlights, getHighlights }) {
+import Loader from 'components/loader';
+function ProductHighlight({ highlights, getHighlights, isLoading }) {
   useEffect(() => {
     getHighlights();
   }, []);
 
+  if (isLoading) {
+    return <Loader />;
+  }
   const randomNumber = Math.floor(Math.random() * highlights.length);
   if (!highlights[randomNumber]) {
     return null;
@@ -38,7 +42,10 @@ function ProductHighlight({ highlights, getHighlights }) {
   );
 }
 
-const mapStateToProps = (state) => ({ highlights: state.highlights.data });
+const mapStateToProps = (state) => ({
+  highlights: state.highlights.data,
+  isLoading: state.highlights.isLoading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getHighlights: () => dispatch(getHighlights()),

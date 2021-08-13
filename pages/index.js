@@ -23,7 +23,6 @@ export default function Home() {
         <ProductHighlight />
         <CollectionPromo />
         <NewProducts />
-        <Newsletter />
       </main>
     </>
   );

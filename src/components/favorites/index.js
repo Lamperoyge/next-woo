@@ -2,12 +2,15 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { getFavouriteProducts } from 'redux/favourites/favourites.actions';
 import ProductCard from '../productCard/index';
-const Favorites = ({ getFavourites, favourites }) => {
+import Loader from 'components/loader';
+const Favorites = ({ getFavourites, favourites, isLoading }) => {
   useEffect(() => {
     getFavourites();
   }, []);
 
-  if (!favourites.length) return null;
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className='px-5 py-5'>
       <h2 className='text-center text-4xl font-semibold leading-snug'>
@@ -28,7 +31,10 @@ const Favorites = ({ getFavourites, favourites }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ favourites: state.favourites.data });
+const mapStateToProps = (state) => ({
+  favourites: state.favourites.data,
+  isLoading: state.favourites.isLoading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getFavourites: () => dispatch(getFavouriteProducts()),
