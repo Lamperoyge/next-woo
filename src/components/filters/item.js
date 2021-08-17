@@ -1,6 +1,16 @@
 import { useState } from 'react';
 
-export default function Item({ item, onFilterChange }) {
+const DEFAULT_ITEM_PROPS = {
+  title: 'title',
+  values: 'values',
+};
+
+export default function Item({
+  item,
+  onFilterChange,
+  itemProps = DEFAULT_ITEM_PROPS,
+  border = true,
+}) {
   const [isMenuVisible, setMenuVisibility] = useState(false);
 
   const toggleMenu = () => setMenuVisibility(!isMenuVisible);
@@ -10,13 +20,13 @@ export default function Item({ item, onFilterChange }) {
     toggleMenu();
   };
   return (
-    <div className='p-10 w-full border-b border-black'>
+    <div className={`p-10 w-full ${border ? 'border-b border-black' : null}`}>
       <div className='dropdown inline-block relative float-right '>
         <button
           onClick={toggleMenu}
           className='border-black border text-gray-700 font-semibold py-2 px-4 inline-flex items-center'
         >
-          <span className='mr-1'>{item.title}</span>
+          <span className='mr-1'>{item[itemProps.title]}</span>
           <svg
             className='fill-current h-4 w-4'
             xmlns='http://www.w3.org/2000/svg'
@@ -26,17 +36,17 @@ export default function Item({ item, onFilterChange }) {
           </svg>
         </button>
         <ul
-          className={`dropdown-menu absolute ${
+          className={`dropdown-menu w-full absolute ${
             isMenuVisible ? 'block' : 'hidden'
-          } text-gray-700 pt-1`}
+          } text-gray-700`}
         >
-          {item.values.map((value, valueIdx) => {
+          {item[itemProps.values].map((value, valueIdx) => {
             return (
               <li
                 key={valueIdx}
                 onClick={() => handleSelect({ [item.key]: value })}
               >
-                <span className='capitalize rounded-t bg-white hover:bg-black hover:text-white py-2 px-4 block whitespace-no-wrap'>
+                <span className='capitalize text-center bg-white hover:bg-black hover:text-white py-2 px-4 block whitespace-no-wrap'>
                   {value}
                 </span>
               </li>
