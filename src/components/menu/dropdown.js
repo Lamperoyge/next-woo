@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
+import { colorConfig } from './menu';
 export default function DropdownMenu({ config }) {
   const [isOpen, setDrawerVisibility] = useState(false);
 
@@ -58,11 +59,14 @@ export default function DropdownMenu({ config }) {
               return (
                 <li
                   key={idx}
-                  className='flex items-center justify-center hover:bg-coolGray-800 hover:text-white border-b-2'
+                  className='relative flex items-center justify-center hover:bg-coolGray-800 hover:text-white border-b-2'
                 >
                   <Link href={item.url} passHref>
-                    <a>{item.title}</a>
+                    <a className='font-poppins py-4 px-4 font-bold text-sm'>
+                      {item.title}
+                    </a>
                   </Link>
+                  {item.isNew ? <span className='new-badge'>NEW</span> : null}
                 </li>
               );
             })}

@@ -1,6 +1,10 @@
 section.loader-wrapper {
   display: flex;
   height: 100%;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 div.loader-flex {
@@ -9,7 +13,8 @@ div.loader-flex {
   flex-wrap: wrap;
   align-items: center;
   margin: 0 auto;
-  height: 50vh;
+  /* height: 50vh; */
+  height: 100%;
 }
 
 .loader-flex > span {

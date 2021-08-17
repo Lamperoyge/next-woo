@@ -1,15 +1,17 @@
 const config = [
   {
-    title: 'MEN',
-    url: '/shop-category/men',
+    title: 'GET NAKED',
+    url: '/shop-category/get-naked',
+    isNew: true,
   },
   {
-    title: 'WOMEN',
-    url: '/shop-category/women',
+    title: 'CAUTION',
+    url: '/shop-category/caution',
+    isNew: true,
   },
   {
-    title: 'NEW ARRIVALS',
-    url: '/shop-category/new-arrivals',
+    title: 'SECOND SKIN',
+    url: '/shop-category/second-skin',
   },
   {
     title: 'CONTACT',

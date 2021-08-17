@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 import { getMenu } from 'redux/menu/menu.actions';
 import Link from 'next/link';
 import config from './config';
 import Dropdown from './dropdown';
 import Cart from './cart';
 import Menu from './menu';
+import Image from 'next/image';
 const MainMenu = ({ menuData, getMenuData }) => {
+  useEffect(() => {
+    getMenuData();
+  }, []);
+  console.log(menuData);
   return (
     <nav className='px-4 py-3 bg-white items-center flex justify-between sticky top-0'>
       <Dropdown config={config} />

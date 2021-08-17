@@ -1,15 +1,20 @@
 import { useState } from 'react';
 
-export default function Item({ item }) {
+export default function Item({ item, onFilterChange }) {
   const [isMenuVisible, setMenuVisibility] = useState(false);
 
   const toggleMenu = () => setMenuVisibility(!isMenuVisible);
+
+  const handleSelect = (obj) => {
+    onFilterChange(obj);
+    toggleMenu();
+  };
   return (
-    <div className='p-10'>
-      <div className='dropdown inline-block relative'>
+    <div className='p-10 w-full border-b border-black'>
+      <div className='dropdown inline-block relative float-right '>
         <button
           onClick={toggleMenu}
-          className='bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center'
+          className='border-black border text-gray-700 font-semibold py-2 px-4 inline-flex items-center'
         >
           <span className='mr-1'>{item.title}</span>
           <svg
@@ -27,13 +32,13 @@ export default function Item({ item }) {
         >
           {item.values.map((value, valueIdx) => {
             return (
-              <li key={valueIdx}>
-                <a
-                  className='capitalize rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap'
-                  href='#'
-                >
+              <li
+                key={valueIdx}
+                onClick={() => handleSelect({ [item.key]: value })}
+              >
+                <span className='capitalize rounded-t bg-white hover:bg-black hover:text-white py-2 px-4 block whitespace-no-wrap'>
                   {value}
-                </a>
+                </span>
               </li>
             );
           })}

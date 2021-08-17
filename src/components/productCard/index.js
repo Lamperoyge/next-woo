@@ -3,7 +3,12 @@ import Link from 'next/link';
 export default function ProductCard({ classnames, idx, item }) {
   return (
     <div key={idx} className={`flex flex-col ${classnames}`}>
-      <Link href={urlExtractor(item.permalink)}>
+      <Link
+        href={{
+          pathname: urlExtractor(item.permalink),
+          query: { id: item.id },
+        }}
+      >
         <img src={item.images[0].src} className='w-80 cursor-pointer' />
       </Link>
       <div className='py-5'>

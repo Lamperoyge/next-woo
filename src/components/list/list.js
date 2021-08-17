@@ -15,6 +15,7 @@ const listConfig = {
   numberOfCol: 2,
   DEFAULT_PER_PAGE: 8,
   DEFAULT_PAGE: 1,
+  USE_FILTERS: true,
 };
 
 const mapStateToProps = (state) => {
@@ -83,14 +84,31 @@ export default connect(
   };
   const pageCount = Math.ceil(productsCount / listConfig.DEFAULT_PER_PAGE);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
+
+  const onFilterChange = (value) => {
+    setIsLoadingProducts(true);
+    getProductsData(categoryBySlug.id, {
+      page: currentPage,
+      per_page: listConfig.DEFAULT_PER_PAGE,
+      ...value,
+    });
+  };
+
   return (
-    <>
+    <div style={isLoading ? { height: '80vh' } : {}}>
+      <Loader show={isLoading} />
       {products.length ? (
-        <>
-          <Filters />
+        <div
+          className={`${
+            isLoading ? 'opacity-20 pointer-events-none' : 'opacity-100'
+          }`}
+        >
+          {listConfig.USE_FILTERS ? (
+            <Filters onFilterChange={onFilterChange} />
+          ) : null}
           <ul className='card-list'>
             {products.map((product, idx) => {
               return (
@@ -118,11 +136,11 @@ export default connect(
               activeClassName={'active bg-black text-white	px-4 py-1'}
             />
           </div>
-        </>
+        </div>
       ) : null}
       <EmptyState
         condition={!isLoadingCategories && !products.length && !isLoading}
       />
-    </>
+    </div>
   );
 });
