@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-export async function getData(endpoint) {
-  const response = await axios.get(endpoint);
+export async function getData(endpoint, params = {}) {
+  const response = await axios.get(endpoint, {
+    params: {
+      params: JSON.stringify(params),
+    },
+  });
   return response.data;
 }
 
@@ -21,7 +25,6 @@ export async function getProductsData(params) {
         params: JSON.stringify(params),
       },
     });
-    console.log(response);
     return {
       data: response.data.result,
       count: response.data.count,

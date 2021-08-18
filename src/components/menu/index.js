@@ -11,7 +11,6 @@ const MainMenu = ({ menuData, getMenuData }) => {
   useEffect(() => {
     getMenuData();
   }, []);
-  console.log(menuData);
   return (
     <nav className='px-4 py-3 bg-white items-center flex justify-between sticky top-0'>
       <Dropdown config={config} />

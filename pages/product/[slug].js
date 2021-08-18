@@ -1,9 +1,7 @@
 import api from '../api/woo.js';
 import ProductImages from 'components/productImages';
-import Title from 'components/title';
-import Attributes from 'components/attributes';
+import ProductData from 'components/productData';
 export default function ProductPage({ product }) {
-  console.log(product);
   return (
     <div className='container py-10'>
       <div className='flex'>
@@ -11,9 +9,7 @@ export default function ProductPage({ product }) {
           <ProductImages images={product.images} />
         </section>
         <section>
-          <Title title={product.name} size='text-3xl' />
-          <Attributes options={product.attributes} />
-          <div dangerouslySetInnerHTML={{ __html: product.description }} />
+          <ProductData product={product} />
         </section>
       </div>
       <div>

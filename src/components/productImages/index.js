@@ -9,7 +9,7 @@ export default function ProductImages({ images }) {
             <img
               onClick={() => setCurrentImage(image)}
               src={image.src}
-              className='py-3 cursor-pointer'
+              className='py-5 cursor-pointer'
               key={idx}
               alt={image.alt}
             />
@@ -17,7 +17,7 @@ export default function ProductImages({ images }) {
         })}
       </section>
       <section>
-        <img src={currentImage.src} alt={currentImage.alt} />
+        <img className='py-5' src={currentImage.src} alt={currentImage.alt} />
       </section>
     </div>
   );
