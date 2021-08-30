@@ -30,7 +30,12 @@ function ProductHighlight({ highlights, getHighlights, isLoading }) {
           <h1>{highlights[randomNumber].name}</h1>
           <div>
             <p>Discover the latest shades of our iconic handbag line.</p>
-            <Link href={urlExtractor(highlights[randomNumber].permalink)}>
+            <Link
+              href={{
+                pathname: urlExtractor(highlights[randomNumber].permalink),
+                query: { id: highlights[randomNumber].id },
+              }}
+            >
               <button className='flex items-center justify-center btn btn-wide rounded-sm border bg-white text-black hover:text-white'>
                 <h5>SHOP NOW</h5>
               </button>

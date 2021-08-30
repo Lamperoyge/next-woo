@@ -4,9 +4,8 @@ import { getMenu } from 'redux/menu/menu.actions';
 import Link from 'next/link';
 import config from './config';
 import Dropdown from './dropdown';
-import Cart from './cart';
+import Cart from '../cart/CartIcon';
 import Menu from './menu';
-import Image from 'next/image';
 const MainMenu = ({ menuData, getMenuData }) => {
   useEffect(() => {
     getMenuData();

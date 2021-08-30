@@ -25,10 +25,15 @@ export default function ProductData({ product = {} }) {
   const [attrSelected, setSelectedAttrData] = useState({});
 
   const findProduct = () => {
-    const product = variationsData.result.find((variation) =>
+    const variationProduct = variationsData.result.find((variation) =>
       includesAll(variation.attrCombination, Object.values(attrSelected))
     );
-    return product;
+
+    //TODO TO BE REVIEWED
+    if (!variationProduct) {
+      return product;
+    }
+    return variationProduct;
   };
 
   useEffect(() => {
@@ -49,10 +54,11 @@ export default function ProductData({ product = {} }) {
         variations={variationsData.result}
       />
       <AddToCartButton
+        productName={product.name}
         selections={attrSelected}
         findProduct={findProduct}
         variations={variationsData.result}
-        variationsCount={variationsData.count}
+        variationsCount={product.attributes.length}
       />
     </>
   );

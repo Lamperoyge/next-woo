@@ -9,16 +9,23 @@ import TopBar from 'components/Topbar';
 import Categories from 'components/Categories';
 import Newsletter from 'components/newsletter';
 import Footer from 'components/footer';
-
+import DrawerCart from 'components/cart/DrawerCart';
+import { PersistGate } from 'redux-persist/integration/react';
+import BlockScreen from 'components/screenBlockerHOC';
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <TopBar />
-      <Categories />
-      <Menu />
-      <Component {...pageProps} />
-      <Newsletter />
-      <Footer />
+      <PersistGate persistor={store.__PERSISTOR} loading={null}>
+        <DrawerCart />
+        <BlockScreen>
+          <TopBar />
+          <Categories />
+          <Menu />
+          <Component {...pageProps} />
+          <Newsletter />
+          <Footer />
+        </BlockScreen>
+      </PersistGate>
     </Provider>
   );
 }

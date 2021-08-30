@@ -29,6 +29,6 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
     case CLEAN_STATE:
       return { ...state, ...INITIAL_STATE };
     default:
-      return { ...state };
+      return state;
   }
 }

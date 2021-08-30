@@ -16,6 +16,6 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
     case SET_FAVOURITE_PRODUCTS_ERROR:
       return { ...state, data: [], error: payload, isLoading: false };
     default:
-      return { ...state };
+      return state;
   }
 }

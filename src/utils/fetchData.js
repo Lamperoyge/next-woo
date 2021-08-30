@@ -30,7 +30,6 @@ export async function getProductsData(params) {
       count: response.data.count,
     };
   } catch (error) {
-    console.log(error);
     throw new Error(error.response.data);
   }
 }
