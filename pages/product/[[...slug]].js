@@ -15,6 +15,7 @@ export default function ProductPage({ product }) {
       <div>
         <section></section>
       </div>
+      <Newsletter />
     </div>
   );
 }

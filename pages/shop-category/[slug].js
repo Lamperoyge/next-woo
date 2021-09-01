@@ -9,6 +9,7 @@ export default function ProductCategory() {
     <div>
       <Title title={title} />
       <ShopCategoryList category={category} />
+      <Newsletter />
     </div>
   );
 }

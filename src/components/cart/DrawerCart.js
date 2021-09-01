@@ -1,13 +1,11 @@
 import { connect } from 'react-redux';
 import { closeCart, deleteFromCart } from 'redux/cart/cart.actions';
-import { useRef } from 'react';
 import ProductCard from './ProductCard';
 import EmptyState from 'components/EmptyState';
+import useOnClickOutside from 'utils/onClickOutside';
+import Link from 'next/link';
 function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
-  const drawerRef = useRef(null);
-  if (!isOpen) {
-    return null;
-  }
+  const { ref } = useOnClickOutside(closeCart);
 
   const totalPrice = data.reduce(
     (accumulator, currentValue) => accumulator + Number(currentValue.price),
@@ -17,53 +15,57 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
   return (
     <div>
       <aside
-        ref={drawerRef}
-        className={`transform top-0 right-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30`}
+        ref={ref}
+        className={`transform top-0 right-0 w-96 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        // className={`transform top-0 right-0 sm:w-96 w-full bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30`}
       >
         <div>
-          <button
-            type='button'
-            onClick={closeCart}
-            className='w-full flex items-end justify-end py-3 px-3'
-          >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
+          <div className='tracking-widest leading-snug flex justify-between w-full bg-black items-center'>
+            <h1 className='text-white px-3 py-3'>CART</h1>
+            <button
+              type='button'
+              onClick={closeCart}
+              className='w-full flex items-end justify-end py-3 px-3'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M6 18L18 6M6 6l12 12'
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='white'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M6 18L18 6M6 6l12 12'
+                />
+              </svg>
+            </button>
+          </div>
           {data.length ? (
             <>
-              <ul className='menu-center' style={{ maxHeight: '200px' }}>
+              <ul
+                className='menu-center'
+                style={{ maxHeight: '400px', overflow: 'scroll' }}
+              >
                 {data.map((item, idx) => {
-                  console.log(item);
                   return (
-                    <li key={idx} className='flex w-full'>
+                    <li key={idx} className='flex w-full border-b-2'>
                       <div className='w-6/12 px-4 py-4'>
-                        <ProductCard product={item} />
+                        <ProductCard product={item} onClick={closeCart} />
                       </div>
-                      <div className='w-6/12 flex flex-col justify-between pr-10 py-4'>
-                        <span className='font-bold'>{item.price} LEI </span>
-                        <span>{item.name}</span>
-                        <div className='w-full flex justify-between'>
-                          {item.attributes.map((attr, idx) => {
-                            return <span key={idx}>{attr.option}</span>;
-                          })}
-                        </div>
-                        <div className='flex justify-end'>
+                      <div className='w-6/12 flex flex-col justify-evenly pr-10 py-4'>
+                        <div className='flex justify-between'>
+                          <span className='tracking-widest leading-snug font-bold'>
+                            {item.price} LEI{' '}
+                          </span>
                           <svg
                             xmlns='http://www.w3.org/2000/svg'
                             onClick={() => deleteFromCart(idx)}
-                            className='h-6 w-6'
+                            className='h-6 w-6 cursor-pointer'
                             fill='none'
                             viewBox='0 0 24 24'
                             stroke='currentColor'
@@ -76,13 +78,53 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
                             />
                           </svg>
                         </div>
+                        <span className='tracking-widest leading-snug'>
+                          {item.name}
+                        </span>
+                        <div className='w-full'>
+                          {item.attributes.map((attr, idx) => {
+                            return (
+                              <div className='flex justify-between' key={idx}>
+                                <h2 className='tracking-widest uppercase font-semibold leading-snug text-sm'>
+                                  {attr.name + ': '}
+                                </h2>
+                                <span className='tracking-widest uppercase font-semibold leading-snug text-sm'>
+                                  {' ' + attr.option}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </li>
                   );
                 })}
               </ul>
-              <div style={{ backgroundColor: '#f8f8f8' }}>
-                <span className=''>Total: {totalPrice} LEI</span>
+              <div className='px-2 py-4 flex justify-between bg-coolGray-100'>
+                <span className='tracking-widest uppercase font-semibold leading-snug'>
+                  Total:{' '}
+                </span>
+                <span className='tracking-widest uppercase font-semibold leading-snug'>
+                  {totalPrice} LEI
+                </span>
+              </div>
+              <div>
+                <div className='px-5 py-5 flex justify-center flex-col items-center'>
+                  <Link href='/checkout'>
+                    <button
+                      onClick={closeCart}
+                      className='btn btn-wide rounded-sm bg-black text-white hover:text-black hover:bg-white hover:border-4'
+                    >
+                      CHECKOUT
+                    </button>
+                  </Link>
+                  <button
+                    onClick={closeCart}
+                    className='btn my-5 btn-wide rounded-sm hover:bg-black hover:text-white text-black bg-white border-4'
+                  >
+                    CONTINUE SHOPPING
+                  </button>
+                </div>
               </div>
             </>
           ) : (

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { urlExtractor } from 'utils/extractUrl';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onClick = () => {} }) {
   return (
-    <div>
+    <div onClick={onClick}>
       <div>
-        <div>
+        <div className='cursor-pointer'>
           <Link
             href={{
               pathname: urlExtractor(product.permalink),

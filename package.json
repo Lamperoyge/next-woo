@@ -11,6 +11,7 @@
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "axios": "^0.21.1",
     "daisyui": "^1.10.0",
+    "formik": "^2.2.9",
     "next": "latest",
     "next-redux-wrapper": "^7.0.2",
     "react": "^17.0.2",
@@ -20,7 +21,8 @@
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.1",
