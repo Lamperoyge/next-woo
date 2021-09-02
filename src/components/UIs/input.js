@@ -1,16 +1,19 @@
 import { useState } from 'react';
 
-export default function Input({}) {
+export default function Input({ label, placeholder, type }) {
   const [value, setValue] = useState('');
+
+  const handleChange = (e) => setValue(e.target.value);
   return (
     <div className='form-control'>
       <label className='label'>
-        <span className='label-text'>Normal</span>
+        <span className='label-text'>{label}</span>
       </label>
       <input
-        type='text'
+        type={type}
         value={value}
-        placeholder='username'
+        onChange={handleChange}
+        placeholder={placeholder}
         className='input input-bordered'
       />
     </div>
