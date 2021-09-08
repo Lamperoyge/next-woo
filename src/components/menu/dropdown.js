@@ -10,7 +10,11 @@ export default function DropdownMenu({ config }) {
   const menuRef = useRef(null);
   return (
     <div className='flex block lg:hidden'>
-      <button className='h-8 w-8' onClick={handleMenuClick}>
+      <button
+        name='menu dropdown'
+        className='h-8 w-8'
+        onClick={handleMenuClick}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           className='h-8 w-8'
@@ -35,6 +39,7 @@ export default function DropdownMenu({ config }) {
         <div>
           <button
             type='button'
+            name='menu dropdown'
             onClick={handleMenuClick}
             className='w-full flex items-end justify-end py-3 px-3'
           >

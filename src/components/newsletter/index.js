@@ -22,7 +22,10 @@ export default function NewsletterForm({}) {
           </div>
         </form>
         <Link href='/shop-category/women'>
-          <button className='flex items-center justify-center btn btn-wide rounded-sm border ring-0 bg-white text-black hover:text-white'>
+          <button
+            name='subscribe to newsletter'
+            className='flex items-center justify-center btn btn-wide rounded-sm border ring-0 bg-white text-black hover:text-white'
+          >
             <h5>SUBSCRIBE</h5>
           </button>
         </Link>

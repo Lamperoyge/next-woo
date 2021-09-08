@@ -10,7 +10,10 @@ export default function NewCollectionPromo() {
         </p>
       </div>
       <Link href='/shop-category/women'>
-        <button className='flex items-center justify-center btn btn-wide rounded-sm border bg-white text-black hover:text-white'>
+        <button
+          name='new in for her'
+          className='flex items-center justify-center btn btn-wide rounded-sm border bg-white text-black hover:text-white'
+        >
           <h5>NEW IN FOR HER</h5>
         </button>
       </Link>

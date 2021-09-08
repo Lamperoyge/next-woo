@@ -33,7 +33,10 @@ const Banner = ({}) => {
           {buttonsConfig.map((btn, idx) => {
             return (
               <div className='px-5 py-5' key={idx}>
-                <button className='btn btn-wide rounded-sm bg-white border-none text-black hover:text-white'>
+                <button
+                  name={btn.title}
+                  className='btn btn-wide rounded-sm bg-white border-none text-black hover:text-white'
+                >
                   {btn.title}
                 </button>
               </div>

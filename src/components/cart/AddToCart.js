@@ -15,6 +15,7 @@ function AddToCart({
   return (
     <div>
       <button
+        name='add to cart'
         onClick={handleClick}
         className={`${
           Number(variationsCount) !== Object.keys(selections).length

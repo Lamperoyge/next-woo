@@ -11,7 +11,7 @@ const BreadCrumbs = () => {
         <div>Women's shoes</div>
       </div>
       <div>
-        <button className='h-6 w-6'>
+        <button className='h-6 w-6' name='breadcrumb item'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-6 w-6'

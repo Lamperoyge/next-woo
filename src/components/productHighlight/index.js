@@ -36,7 +36,10 @@ function ProductHighlight({ highlights, getHighlights, isLoading }) {
                 query: { id: highlights[randomNumber].id },
               }}
             >
-              <button className='flex items-center justify-center btn btn-wide rounded-sm border bg-white text-black hover:text-white'>
+              <button
+                name='shop now'
+                className='flex items-center justify-center btn btn-wide rounded-sm border bg-white text-black hover:text-white'
+              >
                 <h5>SHOP NOW</h5>
               </button>
             </Link>

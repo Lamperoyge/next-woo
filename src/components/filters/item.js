@@ -24,6 +24,7 @@ export default function Item({
       <div className='dropdown inline-block relative float-right '>
         <button
           onClick={toggleMenu}
+          name={item[itemProps.title]}
           className='border-black border text-gray-700 font-semibold py-2 px-4 inline-flex items-center'
         >
           <span className='mr-1'>{item[itemProps.title]}</span>

@@ -35,6 +35,7 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
               <button
                 type='button'
                 onClick={closeCart}
+                aria-label='close cart'
                 className='w-full flex items-end justify-end py-3 px-3'
               >
                 <svg
@@ -121,6 +122,7 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
                     <Link href='/checkout'>
                       <button
                         onClick={closeCart}
+                        name='checkout'
                         className='btn btn-wide rounded-sm bg-black text-white hover:text-black hover:bg-white hover:border-4'
                       >
                         CHECKOUT
@@ -128,6 +130,7 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
                     </Link>
                     <button
                       onClick={closeCart}
+                      name='continue shopping'
                       className='btn my-5 btn-wide rounded-sm hover:bg-black hover:text-white text-black bg-white border-4'
                     >
                       CONTINUE SHOPPING
