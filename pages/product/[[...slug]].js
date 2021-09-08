@@ -1,6 +1,7 @@
-import api from '../api/woo.js';
-import ProductImages from 'components/productImages';
-import ProductData from 'components/productData';
+import dynamic from 'next/dynamic';
+const api = dynamic(() => import('utils/woo.js'));
+const ProductImages = dynamic(() => import('components/productImages'));
+const ProductData = dynamic(() => import('components/productData'));
 export default function ProductPage({ product }) {
   return (
     <div className='container py-10'>

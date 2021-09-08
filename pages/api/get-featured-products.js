@@ -1,4 +1,4 @@
-import api from './woo.js';
+import api from 'utils/woo';
 
 export default async function getFeaturedProducts(req, res) {
   try {

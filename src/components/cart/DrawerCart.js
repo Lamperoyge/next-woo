@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { closeCart, deleteFromCart } from 'redux/cart/cart.actions';
+import { deleteFromCart } from 'redux/cart/cart.actions';
+import { closeCart } from 'redux/ui/ui.actions';
 import ProductCard from './ProductCard';
-import EmptyState from 'components/EmptyState';
+import EmptyState from 'components/emptyState';
 import useOnClickOutside from 'utils/onClickOutside';
 import Link from 'next/link';
 function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
@@ -11,7 +12,6 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
     (accumulator, currentValue) => accumulator + Number(currentValue.price),
     0
   );
-
   return (
     <div>
       <aside
@@ -137,7 +137,7 @@ function DrawerCart({ data, deleteFromCart, isOpen = false, closeCart }) {
 }
 
 const mapStateToProps = (state) => ({
-  isOpen: state.cart.isOpen,
+  isOpen: state.ui.cart.isOpen,
   data: state.cart.data,
 });
 

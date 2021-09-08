@@ -8,7 +8,6 @@ import {
 } from './cart.types';
 const INITIAL_STATE = {
   data: [],
-  isOpen: false,
 };
 
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
@@ -18,14 +17,7 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
         ...state,
         data: [...state.data, payload],
       };
-    case OPEN_CART:
-      return { ...state, isOpen: true };
-    case CLOSE_CART:
-      return { ...state, isOpen: false };
     case DELETE_FROM_CART:
-      console.log(state.data);
-      console.log(payload);
-      const newData = console.log(newData);
       return {
         ...state,
         data: [

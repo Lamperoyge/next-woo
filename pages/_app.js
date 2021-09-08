@@ -13,7 +13,6 @@ import DrawerCart from 'components/cart/DrawerCart';
 import { PersistGate } from 'redux-persist/integration/react';
 import BlockScreen from 'components/screenBlockerHOC';
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps);
   return (
     <Provider store={store}>
       <PersistGate persistor={store.__PERSISTOR} loading={null}>

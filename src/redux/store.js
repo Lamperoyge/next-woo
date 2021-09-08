@@ -7,6 +7,7 @@ import highlights from './highlights/highlights.reducer';
 import shopCategory from './shop-category/shop-category.reducer';
 import categories from './categories/categories.reducer';
 import cart from './cart/cart.reducer';
+import ui from './ui/ui.reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const isClient = typeof window !== 'undefined';
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   shopCategory,
   categories,
   cart: cart,
+  ui,
 });
 const initialState = {};
 const middleware = [thunk];
