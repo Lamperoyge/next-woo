@@ -8,15 +8,13 @@ const Favorites = ({ getFavourites, favourites, isLoading }) => {
     getFavourites();
   }, []);
 
-  if (isLoading) {
-    return <Loader />;
-  }
   return (
     <div className='px-5 py-5'>
       <h2 className='text-center text-4xl font-semibold leading-snug'>
         Our favorites
       </h2>
       <div className='w-full carousel  px-10 rounded-box'>
+        <Loader show={isLoading} />
         {favourites.map((item, idx) => {
           return (
             <ProductCard

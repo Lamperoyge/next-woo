@@ -16,12 +16,14 @@ const CheckoutForm = () => {
   //TODO
   const handleSubmit = (val) => console.log(val);
   return (
-    <WrappedForm
-      validationSchema={validationSchemaCheckout}
-      handleFormSubmit={handleSubmit}
-      initialState={INITIAL_STATE}
-      formConfig={config}
-    />
+    <div className='px-10'>
+      <WrappedForm
+        validationSchema={validationSchemaCheckout}
+        handleFormSubmit={handleSubmit}
+        initialState={INITIAL_STATE}
+        formConfig={config}
+      />
+    </div>
   );
 };
 

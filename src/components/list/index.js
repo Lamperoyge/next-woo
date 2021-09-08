@@ -1,2 +1,2 @@
 import ShopCategoryList from './list';
-export { ShopCategoryList };
+export default ShopCategoryList;

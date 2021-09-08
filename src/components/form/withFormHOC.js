@@ -29,6 +29,7 @@ export default function withFormHOC(WrappedComponent, AdditionalComponent) {
                 values={values}
                 isValid={isValid}
               />
+
               {<AdditionalComponent />}
             </>
           );

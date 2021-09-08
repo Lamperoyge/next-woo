@@ -10,7 +10,7 @@ function ProductHighlight({ highlights, getHighlights, isLoading }) {
   }, []);
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader show={isLoading} />;
   }
   const randomNumber = Math.floor(Math.random() * highlights.length);
   if (!highlights[randomNumber]) {

@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
-import Title from 'components/title';
-import { ShopCategoryList } from 'components/list';
+import dynamic from 'next/dynamic';
+const Title = dynamic(() => import('components/title'));
+const ShopCategoryList = dynamic(() => import('components/list'));
+const Newsletter = dynamic(() => import('components/newsletter'));
 export default function ProductCategory() {
   const router = useRouter();
   const title = router.query.slug ? router.query.slug.split('-').join(' ') : '';

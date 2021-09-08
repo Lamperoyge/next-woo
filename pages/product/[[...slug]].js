@@ -1,7 +1,15 @@
 import dynamic from 'next/dynamic';
-const api = dynamic(() => import('utils/woo.js'));
+import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 const ProductImages = dynamic(() => import('components/productImages'));
 const ProductData = dynamic(() => import('components/productData'));
+const Newsletter = dynamic(() => import('components/newsletter'));
+const api = new WooCommerceRestApi({
+  url: process.env.API_ENDPOINT || 'http://localhost:8888/next-wp-ecom',
+  consumerKey: process.env.WOO_CONSUMER_KEY,
+  consumerSecret: process.env.WOO_CONSUMER_SECRET,
+  version: 'wc/v3',
+});
+
 export default function ProductPage({ product }) {
   return (
     <div className='container py-10'>
