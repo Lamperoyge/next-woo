@@ -4,16 +4,23 @@ export const validationSchemaCheckout = yup.object().shape({
     .string()
     .email('Introdu o adresa de e-mail valida')
     .required('Introdu email-ul tau'),
-  first_name: yup.string().required('Introdu prenumele tau'),
-  last_name: yup.string().required('Introdu numele tau'),
-  address_1: yup.string().required('Este necesar sa introduci adresa'),
-  address_2: yup.string(),
+  firstName: yup.string().required('Introdu prenumele tau'),
+  lastName: yup.string().required('Introdu numele tau'),
+  addres: yup.string().required('Este necesar sa introduci adresa'),
+  addressTwo: yup.string(),
   city: yup.string().required('Introdu orasul tau'),
-  state: yup.string(),
-  postcode: yup.string().required('Introdu codul postal'),
+  zip: yup.string().required('Introdu codul postal'),
   phone: yup.string().required('Introdu numarul de telefon'),
 });
 
 export const INITIAL_STATE = {
   email: '',
+  firstName: '',
+  lastName: '',
+  addres: '',
+  addressTwo: '',
+  city: '',
+  zip: '',
+  country: '',
+  phone: '',
 };

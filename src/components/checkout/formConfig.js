@@ -1,16 +1,58 @@
-const config = [
+export const formConfig = [
   {
-    key: 'email',
-    type: 'TextField',
-    typeProps: [
-      {
-        name: 'email',
-        type: 'email',
-        label: 'Email *',
-        placeholder: 'E-mail',
-      },
-    ],
+    htmlFor: 'grid-email',
+    text: 'Email',
+    type: 'email',
+    name: 'email',
+    placeholder: 'you@email.com',
+  },
+  {
+    htmlFor: 'grid-phone',
+    text: 'Phone number',
+    type: 'tel',
+    name: 'phone',
+    placeholder: '(0726) 123 456',
+  },
+  {
+    htmlFor: 'grid-firstName',
+    type: 'text',
+    name: 'firstName',
+    placeholder: 'Jane',
+    text: 'First Name',
+  },
+  {
+    htmlFor: 'grid-last-name',
+    type: 'text',
+    name: 'lastName',
+    placeholder: 'Doe',
+    text: 'Last Name',
+  },
+  {
+    htmlFor: 'grid-company',
+    type: 'text',
+    name: 'company',
+    text: 'Company',
+    placeholder: 'Business LLC',
+  },
+  {
+    htmlFor: 'grid-address',
+    text: 'Address',
+    type: 'text',
+    name: 'address',
+    placeholder: 'Unirii 52',
+  },
+  {
+    htmlFor: 'grid-address-2',
+    type: 'text',
+    name: 'addressTwo',
+    placeholder: '52th floor',
+    text: 'Apartment, suite, etc (optional)',
+  },
+  {
+    htmlFor: 'grid-city',
+    type: 'text',
+    name: 'city',
+    placeholder: 'Bucharest',
+    text: 'City',
   },
 ];
-
-export default config;

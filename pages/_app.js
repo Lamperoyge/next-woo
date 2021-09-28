@@ -7,23 +7,25 @@ import store from 'redux/store';
 import Menu from 'components/menu';
 import TopBar from 'components/Topbar';
 import Categories from 'components/Categories';
-import Newsletter from 'components/newsletter';
 import Footer from 'components/footer';
 import DrawerCart from 'components/cart/DrawerCart';
 import { PersistGate } from 'redux-persist/integration/react';
 import BlockScreen from 'components/screenBlockerHOC';
+import withLayout from 'components/layout';
 function MyApp({ Component, pageProps }) {
+  const ComponentWithLayout = withLayout(Component);
   return (
     <Provider store={store}>
       <PersistGate persistor={store.__PERSISTOR} loading={null}>
         <DrawerCart />
-        <BlockScreen>
+        <ComponentWithLayout {...pageProps} />
+        {/* <BlockScreen>
           <TopBar />
           <Categories />
           <Menu />
           <Component {...pageProps} />
           <Footer />
-        </BlockScreen>
+        </BlockScreen> */}
       </PersistGate>
     </Provider>
   );
